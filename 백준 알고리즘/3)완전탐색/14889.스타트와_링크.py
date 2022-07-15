@@ -36,7 +36,6 @@
 
 
 
-from itertools import combinations
 from math import inf
 global n, power, visited, min_sub
 n = int(input())
