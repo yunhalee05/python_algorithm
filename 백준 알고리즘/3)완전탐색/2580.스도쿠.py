@@ -200,7 +200,7 @@
 
 # dfs(0)
 
-global board, isFinished
+global board
 board = []
 location = []
 check_row = [[False]*10 for _ in range(9)]
