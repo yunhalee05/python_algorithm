@@ -1,28 +1,34 @@
-import heapq
 from math import inf
 import sys 
 n, m = map(int, sys.stdin.readline().split())
-graph = [[] for _ in range(n+1)]
+graph = []
 dist = [inf] * (n+1)
 for _ in range(m) :
     a, b, c = map(int, sys.stdin.readline().split())
-    graph[a].append((b, c))
+    graph.append((a, b, c))
 
 h = []
-heapq.heappush(h, (0, 1))
 dist[1] = 0
+isNegativeCycle = False
+for i in range(n):
+    for j in range(m):
+        cur = graph[j][0]
+        next = graph[j][1]
+        cost = graph[j][2]
 
-while h : 
-    weight, node = heapq.heappop(h)
+        if dist[cur] != inf and dist[next]> dist[cur] + cost:
+            dist[next]= dist[cur] + cost
+            if i == n-1:
+                isNegativeCycle = True
 
-    if weight > dist[node] :
-        continue
 
-    for v, w in graph[node] :
-        if w + weight < dist[v] :
-            dist[v] = w + weight
-            heapq.heappush(h, (w + weight, v))
-
-print(dist)
+if isNegativeCycle:
+    print(-1)
+else : 
+    for i in range(2, n+1):
+        if dist[i] == inf:
+            print(-1)
+        else :
+            print(dist[i])
 
 
