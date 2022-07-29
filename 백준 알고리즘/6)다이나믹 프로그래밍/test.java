@@ -27,65 +27,66 @@
 // }
 
 
-import java.util.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+// import java.util.*;
+// import java.io.BufferedReader;
+// import java.io.IOException;
+// import java.io.InputStreamReader;
+// import java.util.Arrays;
 
 
-public class test{
+// public class test{
 
-    static int answer = 0;
-    static boolean[] check = new boolean[10];
-    static HashSet<Integer> arr = new HashSet<>();
+//     static int answer = 0;
+//     static boolean[] check = new boolean[10];
+//     static HashSet<Integer> arr = new HashSet<>();
         
-    private static void createNumbers(int depth, String numbers, String tmp) {
-        if (depth == tmp.length()) {
-            Integer number = Integer.parseInt(tmp);
-            arr.add(number);
-            return;
-        }
+//     private static void createNumbers(int depth, String numbers, String tmp) {
+//         if (depth == tmp.length()) {
+//             Integer number = Integer.parseInt(tmp);
+//             arr.add(number);
+//             return;
+//         }
 
-        for(int i = 0 ; i<numbers.length(); i++) {
-            if (!check[i]) {
-                tmp += numbers.charAt(i);
-                check[i] = true;
-                createNumbers(depth, numbers, tmp);
-                tmp.substring(0, tmp.length()-1);
-                check[i] = false;
-            }
-        }
-    }
+//         for(int i = 0 ; i<numbers.length(); i++) {
+//             if (!check[i]) {
+//                 tmp += numbers.charAt(i);
+//                 check[i] = true;
+//                 createNumbers(depth, numbers, tmp);
+//                 tmp.substring(0, tmp.length()-1);
+//                 check[i] = false;
+//             }
+//         }
+//     }
     
-    private static boolean isPrimeNumber(Integer number){
-        if (number == 0 || number == 1) {
-            return false;
-        }
-        for (int i = 2; i<=Math.sqrt(number); i++) {
-            if (number%i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+//     private static boolean isPrimeNumber(Integer number){
+//         if (number == 0 || number == 1) {
+//             return false;
+//         }
+//         for (int i = 2; i<=Math.sqrt(number); i++) {
+//             if (number%i == 0) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
     
 
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String n = br.readLine();
+//     public static void main(String[] args) throws IOException{
+//         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//         String n = br.readLine();
 
-        for( int i = 1; i<n.length()+1; i++){
-            createNumbers(i, n, "");
-        }
+//         for( int i = 1; i<n.length()+1; i++){
+//             createNumbers(i, n, "");
+//         }
         
-        arr.forEach(a -> {
-            System.out.println(a);
-            if (isPrimeNumber(a)) {
-                answer ++;
-            }
-        });
+//         arr.forEach(a -> {
+//             System.out.println(a);
+//             if (isPrimeNumber(a)) {
+//                 answer ++;
+//             }
+//         });
 
-    }
+//     }
     
-}
+// }
+
