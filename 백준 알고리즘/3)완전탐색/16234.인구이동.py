@@ -26,7 +26,6 @@ def bfs(x, y, open):
     else:
         return False
 
-data = []
 n, l, r = map(int, sys.stdin.readline().split())
 data = [list(map(int, input().split())) for _ in range(n)]
 
