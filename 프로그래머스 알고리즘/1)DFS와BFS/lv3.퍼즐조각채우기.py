@@ -28,7 +28,8 @@ def solution(game_board, table):
             if game_board_copy[i][j] == 0 :
                 game_board_copy[i][j] = 2
                 blocks.append(dfs(game_board_copy, i, j, [0,0], n, 0))
-    for k in range(4) :
+                
+    for _ in range(4) :
         table = rotate(table)
         table_rotate_copy = copy.deepcopy(table)
         for i in range(n) :
